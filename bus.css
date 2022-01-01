@@ -2,21 +2,95 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Rubik&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
-:root {
+body {
+  font-size: 18px;
+  text-align: center;
+}
+
+[type='radio'] {
+  z-index: 1;
+  position: relative;
+  -webkit-transform: translateY(90vh);
+          transform: translateY(90vh);
+  bottom: 3em;
+  width: 1.3em;
+  height: 1.3em;
+  margin: 0 0.5em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  --colorSaturation: 20%;
+}
+
+[type='radio'].purple {
+  --colorHue: 228deg;
+}
+
+[type='radio'].purple:checked ~ .page-container {
   --baseColorHue: 228;
 }
 
-body {
-  font-size: 18px;
+[type='radio'].turquoise {
+  --colorHue: 180deg;
+}
+
+[type='radio'].turquoise:checked ~ .page-container {
+  --baseColorHue: 180;
+}
+
+[type='radio'].yellow {
+  --colorHue: 58deg;
+}
+
+[type='radio'].yellow:checked ~ .page-container {
+  --baseColorHue: 58;
+}
+
+[type='radio']:hover {
+  --colorSaturation: 35%;
+}
+
+[type='radio']:before {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: linear-gradient(45deg, hsl(var(--colorHue), var(--colorSaturation), 60%) 50%, hsl(var(--colorHue), var(--colorSaturation), 75%) 50%);
+  -webkit-transition: -webkit-box-shadow 0.1s;
+  transition: -webkit-box-shadow 0.1s;
+  transition: box-shadow 0.1s;
+  transition: box-shadow 0.1s, -webkit-box-shadow 0.1s;
+}
+
+[type='radio']:checked:before {
+  -webkit-box-shadow: 0 0 0px 3px hsl(var(--colorHue), 12%, 87%), 0 0 0px 5px #52abf9;
+          box-shadow: 0 0 0px 3px hsl(var(--colorHue), 12%, 87%), 0 0 0px 5px #52abf9;
+}
+
+.page-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  --baseColorHue: 228;
   background-color: hsl(var(--baseColorHue), 12%, 87%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .bus {
   width: 22.4em;
   height: 22em;
-  position: absolute;
-  left: calc(50% - 22.4em / 2);
-  top: calc(50% - 22em / 2);
+  position: relative;
   -webkit-animation: busShow 1s forwards;
           animation: busShow 1s forwards;
   opacity: 0;
@@ -24,7 +98,7 @@ body {
 
 .bus:before {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   width: 24em;
   left: -1em;
@@ -56,7 +130,7 @@ body {
 
 .bus .air-conditioner:before {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   width: 2em;
   height: 100%;
@@ -69,7 +143,7 @@ body {
 
 .bus .air-conditioner:after {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   width: 2em;
   height: 100%;
@@ -96,7 +170,7 @@ body {
 
 .bus .bus-top:before {
   display: block;
-  content: "";
+  content: '';
   width: 22.4em;
   height: 0.9em;
   position: absolute;
@@ -152,7 +226,7 @@ body {
 
 .bus .bus-top .logo:before {
   display: block;
-  content: "";
+  content: '';
   width: 0.08em;
   height: 0.6em;
   background: white;
@@ -165,7 +239,7 @@ body {
 
 .bus .bus-top .logo:after {
   display: block;
-  content: "";
+  content: '';
   width: 1.05em;
   height: 1em;
   position: absolute;
@@ -192,7 +266,7 @@ body {
 
 .bus .bus-top .logo .logo-d1:before {
   display: block;
-  content: "";
+  content: '';
   width: 3em;
   height: 1.9em;
   border-bottom: solid 0.11em #ffffff;
@@ -206,7 +280,7 @@ body {
 
 .bus .bus-top .logo .logo-d1:after {
   display: block;
-  content: "";
+  content: '';
   width: 0.1em;
   height: 0.76em;
   border-left: solid 0.11em #ffffff;
@@ -237,7 +311,7 @@ body {
 
 .bus .bus-top .logo .logo-d2:before {
   display: block;
-  content: "";
+  content: '';
   width: 0.25em;
   height: 0.3em;
   border: solid 0.11em white;
@@ -253,7 +327,7 @@ body {
 
 .bus .bus-top .logo .logo-d2:after {
   display: block;
-  content: "";
+  content: '';
   width: 0.3em;
   height: 1em;
   border-top: solid 0.21em var(--logoColor);
@@ -326,12 +400,12 @@ body {
 }
 
 .bus .bus-top .screen .content .slides-container .slide .text {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 2.3em;
 }
 
 .bus .bus-top .screen .content .slides-container .slide .number {
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   font-size: 1.9em;
   font-weight: bold;
   -webkit-margin-start: 25px;
@@ -364,12 +438,12 @@ body {
 
 .bus .bus-top .mirror-left .mirror-big:before {
   display: block;
-  content: "";
+  content: '';
 }
 
 .bus .bus-top .mirror-left .mirror-big:after {
   display: block;
-  content: "";
+  content: '';
 }
 
 .bus .bus-top .mirror-left .mirror-rod {
@@ -393,7 +467,7 @@ body {
 
 .bus .bus-top .mirror-left .mirror-rod:before {
   display: block;
-  content: "";
+  content: '';
   width: 2em;
   height: 0.5em;
   position: absolute;
@@ -409,7 +483,7 @@ body {
 
 .bus .bus-top .mirror-left .mirror-rod:after {
   display: block;
-  content: "";
+  content: '';
   width: 0.15em;
   height: 4em;
   background-image: linear-gradient(89deg, black 0%, #7d7d7d 50%, black 100%);
@@ -458,7 +532,7 @@ body {
 
 .bus .bus-top .mirror-right .mirror-rod:before {
   display: block;
-  content: "";
+  content: '';
   width: 0.86em;
   height: 2em;
   border-radius: 0 0.5em 0.5em 0 / 0 0.5em;
@@ -468,7 +542,7 @@ body {
 
 .bus .bus-top .mirror-right .mirror-rod:after {
   display: block;
-  content: "";
+  content: '';
   width: 0.86em;
   height: 2em;
   border-radius: 0 0.5em 0.5em 0 / 0 0.5em;
@@ -513,7 +587,7 @@ body {
 
 .bus .big-screen:before {
   display: block;
-  content: "";
+  content: '';
   width: 100%;
   height: 1.2em;
   position: absolute;
@@ -534,7 +608,7 @@ body {
 
 .bus .big-screen .window:before {
   display: block;
-  content: "";
+  content: '';
   width: 100%;
   height: 100%;
   position: absolute;
@@ -549,7 +623,7 @@ body {
 
 .bus .big-screen .window:after {
   display: block;
-  content: "";
+  content: '';
   width: 0.4em;
   height: 100%;
   position: absolute;
@@ -592,7 +666,7 @@ body {
 
 .bus .big-screen .wiper-container .wiper-stick:before {
   display: block;
-  content: "";
+  content: '';
   width: 0.1em;
   height: 0.5em;
   background: #2f2f2f;
@@ -621,7 +695,7 @@ body {
 
 .bus .big-screen .wiper-container .wiper-stick:after {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   width: 0.5em;
   height: 7.7em;
@@ -679,7 +753,7 @@ body {
 
 .bus .big-screen .accessibility-sticker:before {
   display: block;
-  content: "";
+  content: '';
   width: 0.6em;
   height: 0.6em;
   border: solid 0.12em #fff;
@@ -694,16 +768,17 @@ body {
 
 .bus .big-screen .accessibility-sticker:after {
   display: block;
-  content: "";
+  content: '';
 }
 
 .bus .bus-bottom {
   position: relative;
+  z-index: 2;
 }
 
 .bus .bus-bottom:before {
   display: block;
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   height: 6.8em;
@@ -731,7 +806,7 @@ body {
 
 .bus .bus-bottom .bottom-1 .grill-center:before {
   display: block;
-  content: "";
+  content: '';
   width: 3em;
   height: 0.6em;
   position: absolute;
@@ -747,7 +822,7 @@ body {
 
 .bus .bus-bottom .bottom-1 .grill-center:after {
   display: block;
-  content: "הארגז";
+  content: 'הארגז';
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -755,7 +830,7 @@ body {
   color: #fff;
   top: -23%;
   font-size: 0.6em;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .bus .bus-bottom .bottom-1 .grill-center .manufacturer-name {
@@ -763,7 +838,7 @@ body {
   background: -webkit-linear-gradient(#fff 0%, #8e8e8e 10% 13%, #fff 13% 15%, #6d6d6d 15% 18%, #ccc 18% 25%, #fffefe 25% 35%, #dedede 35% 45%, #9a9898 45% 50%, #d4d2d2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: "Archivo Black", sans-serif;
+  font-family: 'Archivo Black', sans-serif;
   position: absolute;
   left: 5.5em;
   top: 1.85em;
@@ -808,7 +883,7 @@ body {
 
 .bus .bus-bottom .bottom-1 .grill-side:before {
   display: block;
-  content: "";
+  content: '';
   width: 2em;
   height: 1.1em;
   position: absolute;
@@ -821,7 +896,7 @@ body {
 
 .bus .bus-bottom .bottom-1 .grill-side:after {
   display: block;
-  content: "";
+  content: '';
   width: 2em;
   height: 1.1em;
   position: absolute;
@@ -867,7 +942,7 @@ body {
   top: 1em;
   font-size: 1.02em;
   letter-spacing: -0.02em;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .bus .bus-bottom .bottom-1 .grill-side .light-box {
@@ -936,7 +1011,7 @@ body {
 
 .bus .bus-bottom .bottom-2:before {
   display: block;
-  content: "";
+  content: '';
   width: 11.3em;
   height: 0.5em;
   position: absolute;
@@ -952,7 +1027,7 @@ body {
 
 .bus .bus-bottom .bottom-2:after {
   display: block;
-  content: "";
+  content: '';
   width: 14.2em;
   height: 2em;
   position: absolute;
@@ -972,6 +1047,9 @@ body {
   position: absolute;
   top: 0.9em;
   left: 50%;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   z-index: 1;
@@ -981,15 +1059,15 @@ body {
   font-size: 0.8em;
   padding: 0.15em 0.15em 0.1em 0.6em;
   text-align: right;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: bold;
-  -webkit-box-shadow: 0 0 0 0.03em #f7de84;
-          box-shadow: 0 0 0 0.03em #f7de84;
+  -webkit-box-shadow: 0 0 0 0.03em #f7de84, inset 0 0 3px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 0 0.03em #f7de84, inset 0 0 3px 0px rgba(0, 0, 0, 0.4);
 }
 
 .bus .bus-bottom .bottom-2 .license-plate:after {
   display: block;
-  content: "";
+  content: '';
   width: 0.4em;
   height: 100%;
   position: absolute;

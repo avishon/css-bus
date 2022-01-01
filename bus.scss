@@ -1,27 +1,89 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Rubik&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
-
-:root {
-  --baseColorHue: 228;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 body {
   font-size: 18px;
+  text-align: center;
+}
+
+[type='radio'] {
+  z-index: 1;
+  position: relative;
+  transform: translateY(90vh);
+  bottom: 3em;
+  width: 1.3em;
+  height: 1.3em;
+  margin: 0 0.5em;
+  appearance: none;
+  cursor: pointer;
+  --colorSaturation: 20%;
+  &.purple {
+    --colorHue: 228deg;
+    &:checked {
+      ~ .page-container {
+        --baseColorHue: 228;
+      }
+    }
+  }
+  &.turquoise {
+    --colorHue: 180deg;
+    &:checked {
+      ~ .page-container {
+        --baseColorHue: 180;
+      }
+    }
+  }
+  &.yellow {
+    --colorHue: 58deg;
+    &:checked {
+      ~ .page-container {
+        --baseColorHue: 58;
+      }
+    }
+  }
+  &:hover {
+    --colorSaturation: 35%;
+  }
+  &:before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: linear-gradient(
+      45deg,
+      hsl(var(--colorHue), var(--colorSaturation), 60%) 50%,
+      hsl(var(--colorHue), var(--colorSaturation), 75%) 50%
+    );
+    transition: box-shadow 0.1s;
+  }
+  &:checked:before {
+    box-shadow: 0 0 0px 3px hsl(var(--colorHue), 12%, 87%), 0 0 0px 5px #52abf9;
+  }
+}
+
+.page-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  --baseColorHue: 228;
   background-color: hsl(var(--baseColorHue), 12%, 87%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bus {
   width: 22.4em;
   height: 22em;
-  position: absolute;
-  left: calc(50% - 22.4em / 2);
-  top: calc(50% - 22em / 2);
+  position: relative;
   animation: busShow 1s forwards;
   opacity: 0;
   &:before {
     display: block;
-    content: "";
+    content: '';
     position: absolute;
     width: 24em;
     left: -1em;
@@ -54,7 +116,7 @@ body {
     transform: translateX(-50%);
     &:before {
       display: block;
-      content: "";
+      content: '';
       position: absolute;
       width: 2em;
       height: 100%;
@@ -65,7 +127,7 @@ body {
     }
     &:after {
       display: block;
-      content: "";
+      content: '';
       position: absolute;
       width: 2em;
       height: 100%;
@@ -101,7 +163,7 @@ body {
     background-color: hsl(calc(var(--baseColorHue) - 16), 28%, 28%);
     &:before {
       display: block;
-      content: "";
+      content: '';
       width: 22.4em;
       height: 0.9em;
       position: absolute;
@@ -179,7 +241,7 @@ body {
       opacity: 0.7;
       &:before {
         display: block;
-        content: "";
+        content: '';
         width: 0.08em;
         height: 0.6em;
         background: white;
@@ -190,7 +252,7 @@ body {
       }
       &:after {
         display: block;
-        content: "";
+        content: '';
         width: 1.05em;
         height: 1em;
         position: absolute;
@@ -213,7 +275,7 @@ body {
         z-index: 1;
         &:before {
           display: block;
-          content: "";
+          content: '';
           width: 3em;
           height: 1.9em;
           border-bottom: solid 0.11em #ffffff;
@@ -225,7 +287,7 @@ body {
         }
         &:after {
           display: block;
-          content: "";
+          content: '';
           width: 0.1em;
           height: 0.76em;
           border-left: solid 0.11em #ffffff;
@@ -251,7 +313,7 @@ body {
         background: var(--logoColor);
         &:before {
           display: block;
-          content: "";
+          content: '';
           width: 0.25em;
           height: 0.3em;
           border: solid 0.11em white;
@@ -265,7 +327,7 @@ body {
         }
         &:after {
           display: block;
-          content: "";
+          content: '';
           width: 0.3em;
           height: 1em;
           border-top: solid 0.21em var(--logoColor);
@@ -327,11 +389,11 @@ body {
               animation-delay: 8s;
             }
             .text {
-              font-family: "Rubik", sans-serif;
+              font-family: 'Rubik', sans-serif;
               font-size: 2.3em;
             }
             .number {
-              font-family: "Fjalla One", sans-serif;
+              font-family: 'Fjalla One', sans-serif;
               font-size: 1.9em;
               font-weight: bold;
               margin-inline-start: 25px;
@@ -377,11 +439,11 @@ body {
         box-shadow: inset 0.2em -0.1em 0.3em #000000;
         &:before {
           display: block;
-          content: "";
+          content: '';
         }
         &:after {
           display: block;
-          content: "";
+          content: '';
         }
       }
       .mirror-rod {
@@ -405,7 +467,7 @@ body {
         z-index: 2;
         &:before {
           display: block;
-          content: "";
+          content: '';
           width: 2em;
           height: 0.5em;
           position: absolute;
@@ -432,7 +494,7 @@ body {
         }
         &:after {
           display: block;
-          content: "";
+          content: '';
           width: 0.15em;
           height: 4em;
           background-image: linear-gradient(
@@ -486,7 +548,7 @@ body {
         z-index: 1;
         &:before {
           display: block;
-          content: "";
+          content: '';
           width: 0.86em;
           height: 2em;
           border-radius: 0 0.5em 0.5em 0 / 0 0.5em;
@@ -495,7 +557,7 @@ body {
         }
         &:after {
           display: block;
-          content: "";
+          content: '';
           width: 0.86em;
           height: 2em;
           border-radius: 0 0.5em 0.5em 0 / 0 0.5em;
@@ -559,7 +621,7 @@ body {
     box-shadow: inset 0 -2em 1em 0 hsla(calc(var(--baseColorHue) - 14), 100%, 16%, 0.54);
     &:before {
       display: block;
-      content: "";
+      content: '';
       width: 100%;
       height: 1.2em;
       position: absolute;
@@ -580,7 +642,7 @@ body {
       );
       &:before {
         display: block;
-        content: "";
+        content: '';
         width: 100%;
         height: 100%;
         position: absolute;
@@ -612,7 +674,7 @@ body {
       }
       &:after {
         display: block;
-        content: "";
+        content: '';
         width: 0.4em;
         height: 100%;
         position: absolute;
@@ -649,7 +711,7 @@ body {
         bottom: 0.2em;
         &:before {
           display: block;
-          content: "";
+          content: '';
           width: 0.1em;
           height: 0.5em;
           background: #2f2f2f;
@@ -670,7 +732,7 @@ body {
         }
         &:after {
           display: block;
-          content: "";
+          content: '';
           position: absolute;
           width: 0.5em;
           height: 7.7em;
@@ -736,7 +798,7 @@ body {
       transform: rotateY(15deg) scale(0.75);
       &:before {
         display: block;
-        content: "";
+        content: '';
         width: 0.6em;
         height: 0.6em;
         border: solid 0.12em #fff;
@@ -749,15 +811,16 @@ body {
       }
       &:after {
         display: block;
-        content: "";
+        content: '';
       }
     }
   }
   .bus-bottom {
     position: relative;
+    z-index: 2;
     &:before {
       display: block;
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       height: 6.8em;
@@ -807,7 +870,7 @@ body {
         background-repeat: no-repeat;
         &:before {
           display: block;
-          content: "";
+          content: '';
           width: 3em;
           height: 0.6em;
           position: absolute;
@@ -830,14 +893,14 @@ body {
         }
         &:after {
           display: block;
-          content: "הארגז";
+          content: 'הארגז';
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
           color: #fff;
           top: -23%;
           font-size: 0.6em;
-          font-family: "Rubik", sans-serif;
+          font-family: 'Rubik', sans-serif;
         }
         .manufacturer-name {
           font-size: 1.1em;
@@ -854,7 +917,7 @@ body {
           );
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          font-family: "Archivo Black", sans-serif;
+          font-family: 'Archivo Black', sans-serif;
           position: absolute;
           left: 5.5em;
           top: 1.85em;
@@ -912,7 +975,7 @@ body {
         background-repeat: no-repeat;
         &:before {
           display: block;
-          content: "";
+          content: '';
           width: 2em;
           height: 1.1em;
           position: absolute;
@@ -928,7 +991,7 @@ body {
         }
         &:after {
           display: block;
-          content: "";
+          content: '';
           width: 2em;
           height: 1.1em;
           position: absolute;
@@ -969,7 +1032,7 @@ body {
           top: 1em;
           font-size: 1.02em;
           letter-spacing: -0.02em;
-          font-family: "Rubik", sans-serif;
+          font-family: 'Rubik', sans-serif;
         }
         .light-box {
           width: 3.3em;
@@ -1073,7 +1136,7 @@ body {
       position: relative;
       &:before {
         display: block;
-        content: "";
+        content: '';
         width: 11.3em;
         height: 0.5em;
         position: absolute;
@@ -1104,7 +1167,7 @@ body {
       }
       &:after {
         display: block;
-        content: "";
+        content: '';
         width: 14.2em;
         height: 2em;
         position: absolute;
@@ -1133,6 +1196,7 @@ body {
         position: absolute;
         top: 0.9em;
         left: 50%;
+        min-width: max-content;
         transform: translateX(-50%);
         z-index: 1;
         color: #5a5a5a;
@@ -1141,12 +1205,12 @@ body {
         font-size: 0.8em;
         padding: 0.15em 0.15em 0.1em 0.6em;
         text-align: right;
-        font-family: "Rubik", sans-serif;
+        font-family: 'Rubik', sans-serif;
         font-weight: bold;
-        box-shadow: 0 0 0 0.03em #f7de84;
+        box-shadow: 0 0 0 0.03em #f7de84, inset 0 0 3px 0px rgba(0, 0, 0, 0.4);
         &:after {
           display: block;
-          content: "";
+          content: '';
           width: 0.4em;
           height: 100%;
           position: absolute;
