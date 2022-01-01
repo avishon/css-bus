@@ -189,7 +189,6 @@ body {
       border-radius: 50%;
       background-position: 0% 0%, 0 0;
       background-size: 0.2em 0.2em, 100% 100%;
-
       background-image: repeating-radial-gradient(
           #386404 0% 50%,
           transparent 50% 100%
@@ -198,7 +197,6 @@ body {
       box-shadow: 0.03em 0.03em 0.03em 0 #545640,
         -0.03em -0.03em 0.1em 0 rgba(117, 153, 118, 0.57);
       animation: lightTopOn 0s forwards 3s;
-
       &.left {
         left: 1.1em;
       }
@@ -1234,16 +1232,11 @@ body {
       }
       .lights-bottom {
         width: 3.4em;
-
         height: 1em;
-
         position: absolute;
         top: 0.3em;
-
         border-radius: 0 0 0 2em / 0 0 0 1em;
-
         display: flex;
-
         background-image: linear-gradient(
             3deg,
             hsl(var(--baseColorHue), 55%, 69%) 0% 30%,
@@ -1256,53 +1249,37 @@ body {
           );
 
         background-size: 3.6em 0.3em, 4.6em 1em;
-
         background-repeat: no-repeat;
-
         background-position: 100% 95%, 01% 0%;
-
         padding-top: 0.1em;
-
         padding-left: 0.2em;
-
         z-index: 2;
         .blinker {
           width: 1.4em;
-
           height: 0.7em;
-
           border-radius: 0 0 0 2em / 0 0 0 1em;
-
           background-image: radial-gradient(
               circle,
               #d05a35 20%,
               transparent 72%
             ),
             radial-gradient(#a26566, #8c2200);
-
           background-repeat: repeat;
-
           background-size: 0.2em 0.2em, 100% 100%;
-
           background-position: 0 0, 0 0;
           animation: blinkerOn 1s linear infinite 5s;
         }
         .fog-lamp {
           width: 1.8em;
-
           height: 0.7em;
-
           background-image: radial-gradient(
               circle,
               #a5a5a5 20%,
               transparent 72%
             ),
             radial-gradient(#a2a29f, #5d5d5d);
-
           background-repeat: repeat;
-
           background-size: 0.2em 0.2em, 100% 100%;
-
           background-position: 0 0, 0 0;
         }
       }
