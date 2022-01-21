@@ -11,10 +11,10 @@ body {
   z-index: 1;
   position: relative;
   transform: translateY(90vh);
-  bottom: 3em;
-  width: 1.3em;
-  height: 1.3em;
-  margin: 0 0.5em;
+  bottom: 2.2em;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.35em;
   appearance: none;
   cursor: pointer;
   --colorSaturation: 20%;
@@ -35,10 +35,10 @@ body {
     }
   }
   &.yellow {
-    --colorHue: 58deg;
+    --colorHue: 54deg;
     &:checked {
       ~ .page-container {
-        --baseColorHue: 58;
+        --baseColorHue: 54;
       }
     }
   }
@@ -369,7 +369,7 @@ body {
         left: -50%;
         transform: scaleX(0.5);
         text-align: center;
-        top: -0.1em;
+        top: -0.3em;
         opacity: 0.5;
         animation: showScreen 0s forwards 3s;
         .slides-container {
@@ -896,7 +896,7 @@ body {
           left: 50%;
           transform: translateX(-50%);
           color: #fff;
-          top: -23%;
+          top: -26%;
           font-size: 0.6em;
           font-family: 'Rubik', sans-serif;
         }
@@ -919,6 +919,7 @@ body {
           position: absolute;
           left: 5.5em;
           top: 1.85em;
+          line-height: 100%;
           font-weight: bold;
           transform: scaleX(1.4);
           box-shadow: 0em 0.1em 0.3em 0em rgba(0, 0, 0, 0.32);
@@ -1027,7 +1028,7 @@ body {
           color: rgba(255, 255, 255, 0.58);
           position: absolute;
           left: 0.8em;
-          top: 1em;
+          top: 0.9em;
           font-size: 1.02em;
           letter-spacing: -0.02em;
           font-family: 'Rubik', sans-serif;
@@ -1139,28 +1140,15 @@ body {
         height: 0.5em;
         position: absolute;
         left: 50%;
+        top: -0.3%;
         transform: translateX(-50%);
         background-repeat: no-repeat;
         background-position: 48% 101%, -46% 0, 144% 0, 52% 0;
-        background-size: 95% 0.11em, 50% 100%, 50% 100%, 50% 100%;
+        background-size: 97% 0.13em, 50% 100%, 49% 100%, 50% 100%;
         background-image: linear-gradient(5deg, #383838 0%, #383838 100%),
-          linear-gradient(
-            235deg,
-            hsl(var(--baseColorHue), 32%, 51%) 50%,
-            #383838 52%,
-            transparent 52%
-          ),
-          linear-gradient(
-            123deg,
-            hsl(var(--baseColorHue), 32%, 51%) 50%,
-            #383838 52%,
-            transparent 53%
-          ),
-          linear-gradient(
-            123deg,
-            hsl(var(--baseColorHue), 32%, 51%) 0%,
-            hsl(var(--baseColorHue), 32%, 51%) 100%
-          );
+         linear-gradient(235deg, hsl(var(--baseColorHue), 32%, 51%) 50%, #383838 55%, transparent 55%),
+        linear-gradient(125deg, hsl(var(--baseColorHue), 32%, 51%) 50%, #383838 52%, transparent 53%),
+        linear-gradient(123deg, hsl(var(--baseColorHue), 32%, 51%) 0%, hsl(var(--baseColorHue), 32%, 51%) 100%);
         z-index: 1;
       }
       &:after {
@@ -1195,6 +1183,7 @@ body {
         top: 0.9em;
         left: 50%;
         min-width: max-content;
+        line-height: 100%;
         transform: translateX(-50%);
         z-index: 1;
         color: #5a5a5a;
